@@ -1,40 +1,31 @@
-import logo from './logo.svg';
+import { TaskCounter } from './TaskCounter';
+import { TaskSearch } from './TaskSearch';
+import { TaskList } from './TaskList';
+import { TaskItem } from './TaskItem';
+import { CreateTaskButton } from './CreateTaskButton';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
 
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
+      <TaskCounter />
+      <TaskSearch />
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TaskList>
+
+        <TaskItem />
+        <TaskItem />
+        <TaskItem />
+        
+      </TaskList>
+      
+      <CreateTaskButton />
+
     </div>
   );
 }
 
-function TaskItem() {
-  return (
-    <li>
-      <span>V</span>
-      <p>Llorar con la Llorona</p>
-      <span>X</span>
-    </li>
-  );
-}
+
 
 export default App;
