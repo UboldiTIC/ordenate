@@ -4,6 +4,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+
+      <TaskItem />
+      <TaskItem />
+      <TaskItem />
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +24,16 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}
+
+function TaskItem() {
+  return (
+    <li>
+      <span>V</span>
+      <p>Llorar con la Llorona</p>
+      <span>X</span>
+    </li>
   );
 }
 
