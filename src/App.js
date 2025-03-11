@@ -1,28 +1,37 @@
+import React from 'react';
 import { TaskCounter } from './TaskCounter';
 import { TaskSearch } from './TaskSearch';
 import { TaskList } from './TaskList';
 import { TaskItem } from './TaskItem';
 import { CreateTaskButton } from './CreateTaskButton';
-import './App.css';
+
+const defaultTasks = [
+  { text: 'Completar el curso.', completed: true },
+  { text: 'Realizar el proyecto.', completed: true },
+  { text: 'Rendir el examen.', completed: false },
+  { text: 'Festejar.', completed: false },
+];
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
 
       <TaskCounter />
       <TaskSearch />
 
       <TaskList>
-
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
-        
+        {defaultTasks.map((task) => (
+          <TaskItem
+            key={task.text}
+            text={task.text}
+            completed={task.completed}
+          />
+        ))}
       </TaskList>
       
       <CreateTaskButton />
 
-    </div>
+    </React.Fragment>
   );
 }
 

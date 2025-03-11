@@ -1,7 +1,9 @@
-function TaskCounter() {
+import './TaskCounter.css';
+
+function TaskCounter({ totalTasks, completedTasks }) {
     return (
         <h1>
-            Has completado 2 de 3 tareas
+            Has completado {completedTasks} de {totalTasks} tareas.
         </h1>
     );
 }
