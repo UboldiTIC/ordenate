@@ -15,22 +15,23 @@ const defaultTasks = [
 function App() {
   return (
     <React.Fragment>
+      <div className="App-container">
+        <h1>Lista de tareas</h1>
+        <TaskCounter />
+        <TaskSearch />
 
-      <TaskCounter />
-      <TaskSearch />
-
-      <TaskList>
-        {defaultTasks.map((task) => (
-          <TaskItem
-            key={task.text}
-            text={task.text}
-            completed={task.completed}
-          />
-        ))}
-      </TaskList>
-      
-      <CreateTaskButton />
-
+        <TaskList>
+          {defaultTasks.map((task) => (
+            <TaskItem
+              key={task.text}
+              text={task.text}
+              completed={task.completed}
+            />
+          ))}
+        </TaskList>
+        
+        <CreateTaskButton />
+      </div>
     </React.Fragment>
   );
 }
