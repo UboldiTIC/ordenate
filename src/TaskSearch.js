@@ -1,3 +1,5 @@
+import './TaskSearch.css';
+
 function TaskSearch() {
     return (
         <div>
