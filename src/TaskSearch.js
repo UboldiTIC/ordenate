@@ -1,12 +1,10 @@
 import React from 'react';
 import './TaskSearch.css';
 
-function TaskSearch() {
-
-    const [event, setEvent] = React.useState('');
-
-    console.log("Los ususarios buscan: " + event);
-
+function TaskSearch({event, setEvent}) {
+    // el evento onChange recibe un evento como parámetro
+    // y el valor del input es event.target.value
+    // el valor del input es un string vacío.
     return (
         <div>
             <input 
