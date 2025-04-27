@@ -2,10 +2,19 @@ import './TaskItem.css';
 
 function TaskItem(props) {
     return (
+        
         <li className='TaskItem'>
-            <span>V</span>
+            <span 
+                onClick={props.onComplete}
+            >
+                V
+            </span>
             <p> {props.text} </p>
-            <span>X</span>
+            <span
+                onClick={props.onDelete}
+            >
+                X
+            </span>
         </li>
     );
 }
