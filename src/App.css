@@ -1,8 +1,15 @@
 .App-container {
-    display: flex;
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-    height: 50vh; /* Asegura que el contenedor ocupa toda la altura de la pantalla */
-    width: 50vw; /*Asegura que el contenedor ocupa todo el ancho de la pantalla*/
-    margin: 0; /* Elimina márgenes predeterminados */
+    min-height: 80%;
+    background-color: #B2D2A4;
+    border: 30px solid #ECDFCC;
+    border-radius: 50px;
+}
+
+h1 {
+    color: #697565;
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+    margin-top: 30px;
+    padding: 5px;
 }

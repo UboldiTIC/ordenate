@@ -1,8 +1,20 @@
 .TaskItem {
-    position: relative;
+    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
     
+}
+
+ul {
+    padding-inline-end: 40px;
+}
+.TaskItem:hover {
+    background-color: #e0e0e0;
 }

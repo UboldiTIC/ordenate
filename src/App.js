@@ -4,6 +4,7 @@ import { TaskSearch } from './TaskSearch';
 import { TaskList } from './TaskList';
 import { TaskItem } from './TaskItem';
 import { CreateTaskButton } from './CreateTaskButton';
+import './App.css';
 
 const defaultTasks = [
   { text: 'Completar el curso.', completed: true },
@@ -32,14 +33,33 @@ function App() {
 
   console.log("Los ususarios buscan: " + event);
 
+  // Función para completar una tarea
+  const completeTask = (text) => {
+    const newTasks = [...tasks];
+    const taskIndex = tasks.findIndex(task => task.text === text);
+    newTasks[taskIndex].completed = !newTasks[taskIndex].completed;
+    setTasks(newTasks);
+  };
+
+  // Función para eliminar una tarea
+  const deleteTask = (text) => {
+    const newTasks = [...tasks];
+    const taskIndex = tasks.findIndex(task => task.text === text);
+    newTasks.splice(taskIndex, 1);
+    setTasks(newTasks);
+  };
+
   // Estados Derivados: a partir de estados ya existentes, nos permiten realizar cálculos.
   const completedTasks = tasks.filter(task => !!task.completed).length;
   const totalTasks = tasks.length;
   const completedPercentage = (completedTasks / totalTasks) * 100;
+  
   // Estado Derivado para filtrar las tareas:
   const searchedTasks = tasks.filter(
     (task) => {
-      return task.text.includes(event);
+      const taskText = task.text.toLocaleLowerCase();
+      const eventText = event.toLocaleLowerCase();
+      return taskText.includes(eventText);
     }
   );
 
@@ -59,11 +79,13 @@ function App() {
         />
 
         <TaskList>
-          {defaultTasks.map((task) => (
+          {searchedTasks.map((task) => (
             <TaskItem
               key={task.text}
               text={task.text}
               completed={task.completed}
+              onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
+              onDelete={() => deleteTask(task.text)}
             />
           ))}
         </TaskList>

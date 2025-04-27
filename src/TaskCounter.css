@@ -1,6 +1,21 @@
 h2 {
-    font-size: 24px;
+    color: #1E201E;
+    font-size: 20px;
     text-align: center;
     margin: 0;
-    padding: 48px;
+    margin-bottom: 16px;
+}
+h3 {
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    color: #697565;
+    
+}
+.task-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 38px;
 }
