@@ -4,17 +4,19 @@ function TaskItem(props) {
     return (
         
         <li className='TaskItem'>
-            <span 
+            <CompleteIcon />
+            {/* <span 
                 onClick={props.onComplete}
             >
                 V
-            </span>
+            </span> */}
             <p> {props.text} </p>
-            <span
+            <DeleteIcon />
+            {/* <span
                 onClick={props.onDelete}
             >
                 X
-            </span>
+            </span> */}
         </li>
     );
 }
