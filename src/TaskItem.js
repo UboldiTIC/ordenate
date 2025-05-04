@@ -1,22 +1,26 @@
+import { CompleteIcon } from './CompleteIcon';
+import { DeleteIcon } from './DeleteIcon';
 import './TaskItem.css';
 
 function TaskItem(props) {
     return (
         
         <li className='TaskItem'>
-            <CompleteIcon />
-            {/* <span 
-                onClick={props.onComplete}
-            >
-                V
-            </span> */}
-            <p> {props.text} </p>
-            <DeleteIcon />
-            {/* <span
-                onClick={props.onDelete}
-            >
-                X
-            </span> */}
+            <CompleteIcon 
+                completed={props.completed}
+                onComplete={props.onComplete}
+               
+            />
+            
+            <p className={`TaskItem-p ${props.completed && "TaskItem-p--complete"}`}> 
+                {props.text} 
+            </p>
+
+            <DeleteIcon 
+                onDelete={props.onDelete}
+                
+            />
+            
         </li>
     );
 }
