@@ -6,6 +6,30 @@ import { TaskItem } from './TaskItem';
 import { CreateTaskButton } from './CreateTaskButton';
 import './App.css';
 
+// CUSTOM HOOKS:
+
+function useLocalStorage(itemName, initialValue) {
+  const localStorageItem = localStorage.getItem(itemName);
+
+  let parsedItem;
+  
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem);
+  }
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+}
+
 /* const defaultTasks = [
   { text: 'Completar el curso.', completed: true },
   { text: 'Realizar el proyecto.', completed: false },
@@ -20,50 +44,10 @@ import './App.css';
 
 function App() {
 
-  // CREAMOS UN ESTADO para las tareas a partir de useState
-  // el valor inicial del estado es un array de objetos
-  // cada objeto tiene una propiedad text y completed
-  // el valor de la propiedad text es un string
-  // el valor de la propiedad completed es un booleano.
-  
-  // const [tasks, setTasks] = React.useState(defaultTasks);
+  const [tasks, saveTasks] = useLocalStorage('TASK_V1', []); // el valor inicial es un array vacío.
 
-
-  // CREAMOS UN ESTADO para las tareas a partir de useState usando localStorage.
-
-  const localStorageTasks = localStorage.getItem('TASK_V1');
-  let parsedTasks;
-
-  if (!localStorageTasks) {
-    localStorage.setItem('TASK_V1', JSON.stringify([]));
-    parsedTasks = [];
-  }
-  else {
-    parsedTasks = JSON.parse(localStorageTasks);
-  }
-  // Guardamos el valor de localStorage en el estado tasks.
-
- 
-  const [tasks, setTasks] = React.useState(parsedTasks);
-  //const [searchValue, setSearchValue] = React.useState('');
-
-  // CREAMOS UN ESTADO para el evento a partir de useState
-  // el valor inicial del estado es un string vacío
-  // este estado va a ser reutilizado en TaskSearch
-  // y en el console.log de App.
-  // es importante tener en cuenta que este estado va a actualizarse a partir del evento onChange.
-  // el evento onChange va a recibir un evento como parámetro.
   const [event, setEvent] = React.useState('');
   console.log("Los ususarios buscan: " + event);
-
-  // CRUD: vamos a actualizar el estado y localStorage con la siguiente función:
-
-  const saveTasks = (newTasks) => {
-    localStorage.setItem('TASK_V1', JSON.stringify(newTasks));
-
-    setTasks(newTasks);
-  }
-
 
   // Función para completar una tarea
   const completeTask = (text) => {
