@@ -1,34 +1,11 @@
 import React from 'react';
-import { TaskCounter } from './TaskCounter';
-import { TaskSearch } from './TaskSearch';
-import { TaskList } from './TaskList';
-import { TaskItem } from './TaskItem';
-import { CreateTaskButton } from './CreateTaskButton';
+import { TaskCounter } from '../TaskCounter';
+import { TaskSearch } from '../TaskSearch';
+import { TaskList } from '../TaskList';
+import { TaskItem } from '../TaskItem';
+import { CreateTaskButton } from '../CreateTaskButton';
+import { useLocalStorage } from './useLocalStorage.js';
 import './App.css';
-
-// CUSTOM HOOKS:
-
-function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName);
-
-  let parsedItem;
-  
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
-
-  const [item, setItem] = React.useState(parsedItem);
-
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem);
-  };
-
-  return [item, saveItem];
-}
 
 /* const defaultTasks = [
   { text: 'Completar el curso.', completed: true },
