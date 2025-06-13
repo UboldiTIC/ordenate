@@ -1,9 +1,5 @@
 import React from 'react';
-import { TaskCounter } from '../TaskCounter';
-import { TaskSearch } from '../TaskSearch';
-import { TaskList } from '../TaskList';
-import { TaskItem } from '../TaskItem';
-import { CreateTaskButton } from '../CreateTaskButton';
+import { AppUI } from './AppUI.js';
 import { useLocalStorage } from './useLocalStorage.js';
 import './App.css';
 
@@ -56,39 +52,17 @@ function App() {
     }
   );
 
-
   return (
-    <React.Fragment>
-      <div className="App-container">
-        <h1>Lista de tareas</h1>
-        <TaskCounter 
-          completedTasks={completedTasks}
-          totalTasks={totalTasks}
-          completedPercentage={completedPercentage}
-        />
-        <TaskSearch 
-          event={event}
-          setEvent={setEvent}
-        />
-
-        <TaskList>
-          {searchedTasks.map((task) => (
-            <TaskItem
-              key={task.text}
-              text={task.text}
-              completed={task.completed}
-              onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
-              onDelete={() => deleteTask(task.text)}
-            />
-          ))}
-        </TaskList>
-        
-        <CreateTaskButton />
-      </div>
-    </React.Fragment>
-  );
+  <AppUI
+    completedTasks={completedTasks}
+    totalTasks={totalTasks}
+    completedPercentage={completedPercentage}
+    setEvent={setEvent}
+    searchedTasks={searchedTasks}
+    completeTask={completeTask}
+    deleteTask={deleteTask}
+  />
+  ); 
 }
-
-
 
 export default App;
