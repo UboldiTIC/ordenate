@@ -17,7 +17,12 @@ import './App.css';
 
 function App() {
 
-  const [tasks, saveTasks] = useLocalStorage('TASK_V1', []); // el valor inicial es un array vacío.
+  const {
+    item: tasks, // Aquí se guarda el array de tareas.
+    saveItem: saveTasks, // Aquí se guarda la función para actualizar el array de tareas.
+    loading,
+    error,
+   } = useLocalStorage('TASK_V1', []); // el valor inicial es un array vacío.
 
   const [event, setEvent] = React.useState('');
   console.log("Los ususarios buscan: " + event);
@@ -54,6 +59,8 @@ function App() {
 
   return (
   <AppUI
+    loading={loading} // Aquí podrías implementar un estado de carga si lo deseas.
+    error={error} // Aquí podrías implementar un estado de error si lo deseas.
     completedTasks={completedTasks}
     totalTasks={totalTasks}
     completedPercentage={completedPercentage}

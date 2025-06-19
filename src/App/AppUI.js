@@ -6,6 +6,8 @@ import { CreateTaskButton } from '../CreateTaskButton';
 import React from 'react';
 
 function AppUI({
+    loading,
+    error,
     completedTasks,
     totalTasks,
     completedPercentage,
@@ -30,6 +32,9 @@ function AppUI({
             />
 
             <TaskList>
+            {loading && <p>Estamos cargando...</p>}
+            {error && <p>Error de carga, vuelve a intentar en un momento...</p>}
+            {(!loading && searchedTasks.length === 0) && <p>No tienes tareas pendientes, crea una...</p>}
             {searchedTasks.map((task) => (
                 <TaskItem
                 key={task.text}
