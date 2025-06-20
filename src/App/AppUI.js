@@ -3,6 +3,9 @@ import { TaskSearch } from '../TaskSearch';
 import { TaskList } from '../TaskList';
 import { TaskItem } from '../TaskItem';
 import { CreateTaskButton } from '../CreateTaskButton';
+import { TasksLoading } from '../TasksLoading';
+import { TasksError } from '../TasksError';
+import { EmptyTasks } from '../EmptyTasks';
 import React from 'react';
 
 function AppUI({
@@ -32,9 +35,12 @@ function AppUI({
             />
 
             <TaskList>
+             {/* => Los reemplazamos por loading skeletons o placeholders.   
             {loading && <p>Estamos cargando...</p>}
-            {error && <p>Error de carga, vuelve a intentar en un momento...</p>}
-            {(!loading && searchedTasks.length === 0) && <p>No tienes tareas pendientes, crea una...</p>}
+            {error && <p>Error de carga, vuelve a intentar en un momento...</p>} */}
+            {loading && <TasksLoading />}
+            {error && <TasksError />}
+            {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
             {searchedTasks.map((task) => (
                 <TaskItem
                 key={task.text}
