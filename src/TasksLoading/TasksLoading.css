@@ -1,70 +1,30 @@
+/*Copiamos la estructura del elemento contenedor*/
 
 .LoadingTask-container {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 48px;
-    width: 48px;
-    font-size: 24px;
-    font-weight: bold;
-    /* background-color: #CCC; */
-  }
-  
- .LoadingTask-completeIcon {
-    position: absolute;
-    left: 12px;
-  }
- 
- 
- /*Ver cómo armar los cuadros con los TaskItems*/
- 
- 
- 
-  /*  .Icon-container-check--active {
-    color: #4caf50;
-  } */
-  
-  .LoadingTask-deleteIcon {
-    position: absolute;
-    top: -24px;
-    right: 0;
-  }
-  /* .Icon-container-delete:hover {
-    color: red;
-  }
-  
-  .Icon-svg {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .Icon-container-check:hover .Icon-svg {
-    fill: green;
-  }
-  .Icon-container-delete:hover .Icon-svg {
-    fill: red;
-  } */
-
+  list-style: none;
+  background-color: #FAFAFA;
+  border-radius: 15px;
+  height: 100px;
+  width: 300px;
+  padding: 0;
+  margin: 0;
+}
 
 /*Aquí continua para armar el efecto*/
+.LoadingTask-container{
+  background: linear-gradient(90deg, #FAFAFA, #B2D2A4);
+  background-size: 400% 400%;
+  animation: loadingAnimation 3s ease-in-out infinite;
+}
 
-  .LoadingTask-container, 
-  .LoadingTask-completeIcon,
-  .LoadingTask-deleteIcon {
-    background: linear-gradient(90deg, #f0f0f0, #d9d9d9);
-    background-size: 400% 400%;
-    animation: loadingAnimation 3s ease-in-out infinite;
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0% 50%;
   }
-
-  @keyframes loadingAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
   }
+  100% {
+    background-position: 0% 50%;
+  }
+}
