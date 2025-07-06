@@ -38,7 +38,13 @@ function AppUI({
              {/* => Los reemplazamos por loading skeletons o placeholders.   
             {loading && <p>Estamos cargando...</p>}
             {error && <p>Error de carga, vuelve a intentar en un momento...</p>} */}
-            {loading && <TasksLoading />}
+            {loading && (
+                <>
+                    <TasksLoading />
+                    <TasksLoading />
+                    <TasksLoading />
+                </>
+            )}
             {error && <TasksError />}
             {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
             {searchedTasks.map((task) => (
