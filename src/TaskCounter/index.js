@@ -1,6 +1,15 @@
+import React from 'react';
+import { TaskContext } from '../TaskContext';
 import './TaskCounter.css';
 
-function TaskCounter({ totalTasks, completedTasks, completedPercentage }) {
+function TaskCounter() {
+    // Implentación de useContext para traer las props.
+    const {
+        completedPercentage,
+        completedTasks,
+        totalTasks,
+    } = React.useContext(TaskContext);
+
     return (
         <div className='task-counter'>
             <h2>

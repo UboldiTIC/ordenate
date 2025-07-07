@@ -47,3 +47,15 @@ function useLocalStorage(itemName, initialValue) {
 }
 
 export { useLocalStorage };
+
+/* const defaultTasks = [
+  { text: 'Completar el curso.', completed: true },
+  { text: 'Realizar el proyecto.', completed: false },
+  { text: 'Rendir el examen.', completed: false },
+  { text: 'Festejar.', completed: false },
+  { text: 'Averiguar fecha.', completed: true },
+];
+ */
+//localStorage.setItem('TASK_V1', JSON.stringify(defaultTasks));
+
+// localStorage.removeItem('TASK_V1');
