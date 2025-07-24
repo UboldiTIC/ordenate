@@ -11,71 +11,50 @@ import { Modal } from '../Modal';
 import { TaskContext } from '../TaskContext';
 
 function AppUI() {
-    return (
+    const {
+        loading,
+        error,
+        searchedTasks,
+        completeTask,
+        deleteTask,
+        openModal,
+        setOpenModal,
+    } = React.useContext(TaskContext);
+    
+    return ( 
         <React.Fragment>
             <div className="App-container">
             <h1>Lista de tareas</h1>
-            <TaskCounter 
-            /* completedTasks={completedTasks}
-            totalTasks={totalTasks}
-            completedPercentage={completedPercentage} */
-            />
-            <TaskSearch 
-            /* event={event}
-            setEvent={setEvent} */
-            />
+            <TaskCounter/>
+            <TaskSearch/>
+            <TaskList>
+                {loading && (
+                    <>
+                        <TasksLoading />
+                        <TasksLoading />
+                        <TasksLoading />
+                    </>
+                )}
+                {error && <TasksError />}
+                {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
+                {searchedTasks.map((task) => (
+                    <TaskItem
+                        key={task.text}
+                        text={task.text}
+                        completed={task.completed}
+                        onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
+                        onDelete={() => deleteTask(task.text)}
+                    />
+                ))}
+            </TaskList>
+            <CreateTaskButton />
 
-{/* Aquí usamos el TaskContext.Consumer para acceder a los valores del contexto. 
-Otra forma mejor es usando useContext, ver TaskCounter o TaskSearch para su implementación */}
-            <TaskContext.Consumer>
-                {({
-                    loading,
-                    error,
-                    searchedTasks,
-                    completeTask,
-                    deleteTask,  // Ver el error, tal vez tiene que ver con las funciones search y lista de tareas.
-                    openModal,
-                    setOpenModal,
-                }) => (
-                    <TaskList>
-                        {/* => Los reemplazamos por loading skeletons o placeholders.   
-                        {loading && <p>Estamos cargando...</p>}
-                        {error && <p>Error de carga, vuelve a intentar en un momento...</p>} */}
-                        {loading && (
-                            <>
-                                <TasksLoading />
-                                <TasksLoading />
-                                <TasksLoading />
-                            </>
-                        )}
-                        {error && <TasksError />}
-                        {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
-                        {searchedTasks.map((task) => (
-                            <TaskItem
-                            key={task.text}
-                            text={task.text}
-                            completed={task.completed}
-                            onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
-                            onDelete={() => deleteTask(task.text)}
-                            />
-                        ))}
-
-                         {openModal && (
+            {openModal && (
                         <Modal>
                             La modal está abierta.
                         </Modal>
                         )}
-
-                    </TaskList>)}
-
-                   
-
-            </TaskContext.Consumer>
-            
-            <CreateTaskButton />
-
-            
-        </div>
+            </div>
         </React.Fragment>
     );
 }
