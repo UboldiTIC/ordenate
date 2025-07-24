@@ -15,13 +15,16 @@ function TaskProvider( { children  }) {
     const [event, setEvent] = React.useState('');
     console.log("Los ususarios buscan: " + event);
 
+    // Modal para react portal.
+    const [openModal, setOpenModal] = React.useState(true);
+
   // Función para completar una tarea
-    const completeTask = (text) => {
-        const newTasks = [...tasks];
-        const taskIndex = tasks.findIndex(task => task.text === text);
-        newTasks[taskIndex].completed = !newTasks[taskIndex].completed;
-        saveTasks(newTasks);
-    };
+    function completeTask(text) {
+    const newTasks = [...tasks];
+    const taskIndex = tasks.findIndex(task => task.text === text);
+    newTasks[taskIndex].completed = !newTasks[taskIndex].completed;
+    saveTasks(newTasks);
+  }
 
   // Función para eliminar una tarea
     const deleteTask = (text) => {
@@ -57,6 +60,8 @@ function TaskProvider( { children  }) {
             searchedTasks,
             completeTask,
             deleteTask,
+            openModal,
+            setOpenModal,
         }}>
             {children}
         </TaskContext.Provider>

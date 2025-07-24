@@ -7,6 +7,7 @@ import { TasksLoading } from '../TasksLoading';
 import { TasksError } from '../TasksError';
 import { EmptyTasks } from '../EmptyTasks';
 import React from 'react';
+import { Modal } from '../Modal';
 import { TaskContext } from '../TaskContext';
 
 function AppUI() {
@@ -33,6 +34,8 @@ Otra forma mejor es usando useContext, ver TaskCounter o TaskSearch para su impl
                     searchedTasks,
                     completeTask,
                     deleteTask,  // Ver el error, tal vez tiene que ver con las funciones search y lista de tareas.
+                    openModal,
+                    setOpenModal,
                 }) => (
                     <TaskList>
                         {/* => Los reemplazamos por loading skeletons o placeholders.   
@@ -56,10 +59,22 @@ Otra forma mejor es usando useContext, ver TaskCounter o TaskSearch para su impl
                             onDelete={() => deleteTask(task.text)}
                             />
                         ))}
+
+                         {openModal && (
+                        <Modal>
+                            La modal está abierta.
+                        </Modal>
+                        )}
+
                     </TaskList>)}
+
+                   
+
             </TaskContext.Consumer>
             
             <CreateTaskButton />
+
+            
         </div>
         </React.Fragment>
     );
