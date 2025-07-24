@@ -47,7 +47,9 @@ function AppUI() {
                     />
                 ))}
             </TaskList>
-            <CreateTaskButton />
+            <CreateTaskButton 
+                setOpenModal={setOpenModal}
+            />
 
             {openModal && (
                         <Modal>
