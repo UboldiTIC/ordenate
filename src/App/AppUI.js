@@ -9,6 +9,7 @@ import { EmptyTasks } from '../EmptyTasks';
 import React from 'react';
 import { Modal } from '../Modal';
 import { TaskContext } from '../TaskContext';
+import { TaskForm } from '../TaskForm';
 
 function AppUI() {
     const {
@@ -24,38 +25,40 @@ function AppUI() {
     return ( 
         <React.Fragment>
             <div className="App-container">
-            <h1>Lista de tareas</h1>
-            <TaskCounter/>
-            <TaskSearch/>
-            <TaskList>
-                {loading && (
-                    <>
-                        <TasksLoading />
-                        <TasksLoading />
-                        <TasksLoading />
-                    </>
-                )}
-                {error && <TasksError />}
-                {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
-                {searchedTasks.map((task) => (
-                    <TaskItem
-                        key={task.text}
-                        text={task.text}
-                        completed={task.completed}
-                        onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
-                        onDelete={() => deleteTask(task.text)}
-                    />
-                ))}
-            </TaskList>
-            <CreateTaskButton 
-                setOpenModal={setOpenModal}
-            />
+                <h1>Lista de tareas</h1>
+                <TaskCounter />
+                <TaskSearch />
+                <TaskList>
+                    {loading && (
+                        <>
+                            <TasksLoading />
+                            <TasksLoading />
+                            <TasksLoading />
+                        </>
+                    )}
+                    {error && <TasksError />}
+                    {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
+                    {searchedTasks.map((task) => (
+                        <TaskItem
+                            key={task.text}
+                            text={task.text}
+                            completed={task.completed}
+                            onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
+                            onDelete={() => deleteTask(task.text)}
+                        />
+                    ))}
+                </TaskList>
+                <CreateTaskButton 
+                    setOpenModal={setOpenModal}
+                />
 
-            {openModal && (
-                        <Modal>
-                            La modal está abierta.
-                        </Modal>
-                        )}
+                {openModal && (
+                    <Modal>
+                        <TaskForm />
+                       
+                        Modal
+                    </Modal>
+                )}
             </div>
         </React.Fragment>
     );

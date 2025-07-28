@@ -1,8 +1,7 @@
 .btn {
-    margin-bottom: 20px;
-    background-color: #32CD30;
-    border-radius: 5px;
-    border: none;
+   /*  margin-bottom: 20px;
+    
+    
     color: #1E201E;
     padding: 15px 32px;
     text-align: center;
@@ -10,7 +9,29 @@
     display: inline-block;
     font-size: 16px;
     margin: 0px 0px 30px 150px;
+    cursor: pointer; */
+    
+ 
+  
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    right: 50px;
+    bottom: 50px;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    background-color: #32CD30;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Montserrat';
+    font-weight: 400;
+
+    box-shadow: 0px 5px 25px rgba(184, 250, 97, 0.5);
+    /* transform: rotate(0deg);
+    transition: transform 0.2s ease; */
 }
 
 .btn:hover {
