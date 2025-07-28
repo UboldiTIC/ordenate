@@ -55,8 +55,6 @@ function AppUI() {
                 {openModal && (
                     <Modal>
                         <TaskForm />
-                       
-                        Modal
                     </Modal>
                 )}
             </div>

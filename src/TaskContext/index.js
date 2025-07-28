@@ -16,8 +16,18 @@ function TaskProvider( { children  }) {
     console.log("Los ususarios buscan: " + event);
 
     // Modal para react portal.
-    const [openModal, setOpenModal] = React.useState(true);
+    const [openModal, setOpenModal] = React.useState(false);
 
+  // Función para añadir una tarea nueva
+   const addTask = (text) => {
+    const newTasks = [...tasks];
+    newTasks.push({
+      text,
+      completed: false,
+    });
+    saveTasks(newTasks);
+   }
+  
   // Función para completar una tarea
     function completeTask(text) {
     const newTasks = [...tasks];
@@ -52,6 +62,7 @@ function TaskProvider( { children  }) {
         <TaskContext.Provider value={{
             loading,
             error,
+            addTask,
             completedTasks,
             totalTasks,
             completedPercentage,
