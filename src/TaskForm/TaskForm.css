@@ -38,7 +38,7 @@ textarea::placeholder {
 }
 
 textarea:focus {
-  outline-color: #61DAFA;
+  outline-color: #32CD30;
 }
 
 .TaskForm-buttonContainer {
@@ -62,8 +62,8 @@ textarea:focus {
 }
 
 .TaskForm-button--add {
-  background: #61DAFA;
-  box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
+  background: #32CD30;
+  box-shadow: 0px 5px 25px #ddf8d7;
 }
 
 .TaskForm-button--cancel {

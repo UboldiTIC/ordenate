@@ -25,29 +25,33 @@ function AppUI() {
     return ( 
         <React.Fragment>
             <div className="App-container">
-                <h1>Lista de tareas</h1>
+                <h1>Mis Tareas</h1>
                 <TaskCounter />
                 <TaskSearch />
-                <TaskList>
-                    {loading && (
-                        <>
-                            <TasksLoading />
-                            <TasksLoading />
-                            <TasksLoading />
-                        </>
-                    )}
-                    {error && <TasksError />}
-                    {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
-                    {searchedTasks.map((task) => (
-                        <TaskItem
-                            key={task.text}
-                            text={task.text}
-                            completed={task.completed}
-                            onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
-                            onDelete={() => deleteTask(task.text)}
-                        />
-                    ))}
-                </TaskList>
+                <div className="TaskList-container">
+                    <TaskList>
+                        {loading && (
+                            <>
+                                <TasksLoading />
+                                <TasksLoading />
+                                <TasksLoading />
+                            </>
+                        )}
+                        {error && <TasksError />}
+                        {(!loading && searchedTasks.length === 0) && <EmptyTasks />}
+                        {searchedTasks.map((task) => (
+                            <TaskItem
+                                key={task.text}
+                                text={task.text}
+                                completed={task.completed}
+                                onComplete={() => completeTask(task.text)} // Función a TaskItem - No confundir con completedTasks.
+                                onDelete={() => deleteTask(task.text)}
+                            />
+                            
+                        ))}
+                    </TaskList>
+                </div>
+                {/* Botón para crear una nueva tarea */}
                 <CreateTaskButton 
                     setOpenModal={setOpenModal}
                 />

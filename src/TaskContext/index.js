@@ -47,7 +47,7 @@ function TaskProvider( { children  }) {
   // Estados Derivados: a partir de estados ya existentes, nos permiten realizar cálculos.
     const completedTasks = tasks.filter(task => !!task.completed).length;
     const totalTasks = tasks.length;
-    const completedPercentage = (completedTasks / totalTasks) * 100;
+    const completedPercentage = Math.round((completedTasks / totalTasks) * 100);
 
   // Estado Derivado para filtrar las tareas:
     const searchedTasks = tasks.filter(

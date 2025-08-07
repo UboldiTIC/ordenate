@@ -21,3 +21,12 @@ input[type="text"] {
     border-color: green !important;
 } */
 
+input::placeholder {
+  color: #A5A5A5;
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+
+input:focus {
+  outline-color: #32CD30;
+}

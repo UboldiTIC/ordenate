@@ -14,7 +14,7 @@ function CreateTaskButton({ setOpenModal }) {
                     // setOpenModal(true); // Alternativa para abrir la modal.
                }
             }
-        >New Task</button>
+        >Nueva Tarea</button>
     );
 }
 

@@ -1,18 +1,4 @@
 .btn {
-   /*  margin-bottom: 20px;
-    
-    
-    color: #1E201E;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 0px 30px 150px;
-    cursor: pointer; */
-    
- 
-  
     display: flex;
     position: fixed;
     z-index: 1;
@@ -23,18 +9,15 @@
     align-items: center;
     height: 100px;
     width: 100px;
-    background-color: #32CD30;
     border-radius: 50px;
     border: none;
     font-family: 'Montserrat';
     font-weight: 400;
-
-    box-shadow: 0px 5px 25px rgba(184, 250, 97, 0.5);
-    /* transform: rotate(0deg);
-    transition: transform 0.2s ease; */
+    background-color: #32CD30;
+    box-shadow: 0px 5px 25px #ddf8d7;
 }
 
 .btn:hover {
-    background-color: #2C5E1A;
-    color: aliceblue;
+    background-color:#1A4314;
+    color: #B2D2A4;
 }
