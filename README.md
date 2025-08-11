@@ -1,6 +1,6 @@
 # About the project
 
-The Ordenate project is based on the React course in the Platzi bootcamp. 
+The Ordenate project is based on the React course I took at the Platzi bootcamp.
 
 # Getting Started with Create React App
 
