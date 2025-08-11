@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/UboldiTIC/ordenate/static/css/main.19e3c156.css",
+    "main.js": "/UboldiTIC/ordenate/static/js/main.d9bd47de.js",
+    "static/js/453.0cec22c9.chunk.js": "/UboldiTIC/ordenate/static/js/453.0cec22c9.chunk.js",
+    "index.html": "/UboldiTIC/ordenate/index.html",
+    "static/media/delete.svg": "/UboldiTIC/ordenate/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
+    "static/media/check.svg": "/UboldiTIC/ordenate/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
+    "main.19e3c156.css.map": "/UboldiTIC/ordenate/static/css/main.19e3c156.css.map",
+    "main.d9bd47de.js.map": "/UboldiTIC/ordenate/static/js/main.d9bd47de.js.map",
+    "453.0cec22c9.chunk.js.map": "/UboldiTIC/ordenate/static/js/453.0cec22c9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19e3c156.css",
+    "static/js/main.d9bd47de.js"
+  ]
+}
