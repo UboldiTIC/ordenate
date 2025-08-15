@@ -18,10 +18,15 @@ function TaskCounter() {
             {completedPercentage === 100 ? (
                 <h3>No tienes tareas pendientes.</h3>
             ) : (
-                <h3>
-                    Has completado el {completedPercentage}% de {totalTasks} tareas.
-                </h3>
-            )}
+                totalTasks > 0 ? (
+                    <h3>
+                        Has completado el {completedPercentage}% de {totalTasks} tareas.
+                    </h3>
+                ) : (
+                    <h3>
+                        Aún no has creado tareas.
+                    </h3>
+            ))}
         </div>
     );
 }

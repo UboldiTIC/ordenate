@@ -1,4 +1,6 @@
 .App-container {
+    width: 400px;
+    min-width: 400px;
     height: 90vh;
     min-height: 80%;
     background-color: #B2D2A4;
@@ -12,8 +14,6 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    border: 5px solid #B2D2A4;
-    border-radius: 5px;
     max-height: 65%;
     overflow-y: auto; 
     overflow-x: hidden;
