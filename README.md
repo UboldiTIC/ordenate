@@ -1,6 +1,10 @@
+# Sobre el Proyecto
+
+Este proyecto fue realizado a partir del curso de React.js de Platzi. El deployed del proyecto final puede verse en: [Ordenate](https://ubolditic.github.io/ordenate/)
+
 # About the project
 
-The Ordenate project is based on the React course I took at the Platzi bootcamp.
+This project was developed as part of the React.js course offered by Platzi. You can view the final deployed version here: [Ordenate](https://ubolditic.github.io/ordenate/)
 
 # Getting Started with Create React App
 
